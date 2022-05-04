@@ -1,0 +1,26 @@
+# action.yml
+name: 'Sync Notion/Shortcut Milestone Progress'
+description: 'Gets milestoneId from notion pages, gets progress from shortcut, adds progress property to notion pages'
+author: 'kbarendrecht <k.barendrecht@scienta.nl>'
+inputs:
+  SHORTCUT_TOKEN:
+    description: 'Shortcut API token'
+    required: true
+  NOTION_TOKEN:
+    description: 'Notion API token'
+    required: true
+  NOTION_DATABASE_NAME:
+    description: 'The name of the Notion database to get Notion pages from'
+    required: true
+  NOTION_DATABASE_PROPERTY_MILESTONE:
+    description: 'The Notion database property which contains Shortcut milestone identifiers'
+    required: true
+  NOTION_DATABASE_PROPERTY_PROGRESS:
+    description: 'The Notion database property to update with the calculated progress'
+    required: true
+runs:
+  using: 'node16'
+  main: 'main.js'
+branding:
+  icon: 'refresh-ccw'
+  color: 'white'
