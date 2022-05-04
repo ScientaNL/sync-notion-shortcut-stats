@@ -3,8 +3,8 @@
 
 Sync Notion Database properties & Shortcut milestone progress with this Github Action;
 - gets shortcut milestoneId's from specified Notion properties
-- gets the progress of the m`ilestone from Shortcut
-- updates the notion page`
+- gets the progress of the milestone from Shortcut
+- updates the notion page
 ---
 
 #### Running on Github Actions
