@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 import 'dotenv/config'
+import { getInput } from '@actions/core';
 import { Client as NotionClient } from "@notionhq/client";
 import { ShortcutClient } from '@useshortcut/client';
 
-const notionDatabaseName = process.env.NOTION_DATABASE_NAME;
-const notionMilestonePropertyName = process.env.NOTION_DATABASE_PROPERTY_MILESTONE;
-const notionProgressPropertyName = process.env.NOTION_DATABASE_PROPERTY_PROGRESS;
-const notion = new NotionClient({auth: process.env.NOTION_TOKEN});
-const shortcut = new ShortcutClient(process.env.SHORTCUT_TOKEN);
+const notionDatabaseName = process.env.NOTION_DATABASE_NAME ?? getInput('NOTION_DATABASE_NAME');
+const notionMilestonePropertyName = process.env.NOTION_DATABASE_PROPERTY_MILESTONE ?? getInput('NOTION_DATABASE_PROPERTY_MILESTONE');
+const notionProgressPropertyName = process.env.NOTION_DATABASE_PROPERTY_PROGRESS ?? getInput('NOTION_DATABASE_PROPERTY_PROGRESS');
+const notion = new NotionClient({auth: process.env.NOTION_TOKEN ?? getInput('NOTION_TOKEN')});
+const shortcut = new ShortcutClient(process.env.SHORTCUT_TOKEN ?? getInput('SHORTCUT_TOKEN'));
 
 // Gets pages from the Notion `Roadmap` database which have the property `NOTION_ROADMAP_PROPERTY_MILESTONE` configured.
 // Makes a map of the pages & milestones
