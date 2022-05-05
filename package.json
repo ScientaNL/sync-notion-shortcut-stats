@@ -3,8 +3,9 @@
 	"version": "0.0.2",
 	"description": "Sync Notion Database properties with Shortcut milestone progress",
 	"main": "index.mjs",
+	"type": "module",
 	"scripts": {
-		"build": "ncc build ./main.mjs --target es2020 -o dist"
+		"build": "ncc build main.ts --target es2020 -o dist"
 	},
 	"repository": {
 		"type": "git",
@@ -13,12 +14,14 @@
 	"author": "Scienta",
 	"license": "MIT",
 	"dependencies": {
+		"@actions/core": "^1.7.0",
 		"@notionhq/client": "^1.0.4",
 		"@useshortcut/client": "^1.0.0",
 		"dotenv": "^16.0.0",
 		"node-fetch": "^3.2.4"
 	},
 	"devDependencies": {
+		"typescript": "^4.6.4",
 		"@vercel/ncc": "^0.33.1"
 	}
 }

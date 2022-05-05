@@ -38,7 +38,7 @@ for (const milestoneId in milestoneStatsMap) {
 }
 
 // functions
-async function getMilestoneStatsFromShortcut(trackedMilestoneIds) {
+async function getMilestoneStatsFromShortcut(trackedMilestoneIds: number[]) {
 	const stats = {};
 	let milestones = (await shortcut.listMilestones()).data;
 	milestones = milestones.filter(milestone => trackedMilestoneIds.includes(milestone.id));
@@ -53,11 +53,11 @@ async function getMilestoneStatsFromShortcut(trackedMilestoneIds) {
 	return stats;
 }
 
-async function getDatabaseByName(name) {
+async function getDatabaseByName(name: string) {
 	return (await notion.search({query: name})).results[0];
 }
 
-async function getPagesFromDatabase(roadmapDatabaseId) {
+async function getPagesFromDatabase(roadmapDatabaseId: string) {
 	return (await notion.databases.query({
 		database_id: roadmapDatabaseId,
 		filter: {
@@ -69,7 +69,7 @@ async function getPagesFromDatabase(roadmapDatabaseId) {
 	})).results;
 }
 
-async function updateProgressForPage(pageId, progress) {
+async function updateProgressForPage(pageId: string, progress: number) {
 	return await notion.pages.update({
 		page_id: pageId,
 		properties: {
@@ -80,7 +80,7 @@ async function updateProgressForPage(pageId, progress) {
 	});
 }
 
-function createPageMilestoneMap(pages) {
+function createPageMilestoneMap(pages: any[]) {
 	return pages.map(page => ({
 		pageId: page.id,
 		milestoneId: page.properties[notionMilestonePropertyName].number,
