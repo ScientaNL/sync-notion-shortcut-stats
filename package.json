@@ -1,8 +1,24 @@
 {
-  "dependencies": {
-    "@notionhq/client": "^1.0.4",
-    "@useshortcut/client": "^1.0.0",
-    "dotenv": "^16.0.0",
-    "node-fetch": "^3.2.4"
-  }
+	"name": "sync-notion-shortcut-stats",
+	"version": "0.0.2",
+	"description": "Sync Notion Database properties with Shortcut milestone progress",
+	"main": "index.mjs",
+	"scripts": {
+		"build": "ncc build ./main.mjs --target es2020 -o dist"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ScientaNL/sync-notion-shortcut-stats.git"
+	},
+	"author": "Scienta",
+	"license": "MIT",
+	"dependencies": {
+		"@notionhq/client": "^1.0.4",
+		"@useshortcut/client": "^1.0.0",
+		"dotenv": "^16.0.0",
+		"node-fetch": "^3.2.4"
+	},
+	"devDependencies": {
+		"@vercel/ncc": "^0.33.1"
+	}
 }

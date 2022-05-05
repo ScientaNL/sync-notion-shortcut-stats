@@ -20,7 +20,7 @@ inputs:
     required: true
 runs:
   using: 'node16'
-  main: 'main.js'
+  main: 'dist/index.mjs'
 branding:
   icon: 'refresh-ccw'
   color: 'white'
